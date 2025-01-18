@@ -22,7 +22,7 @@ const FundingList = () => {
           nowPrice: 600000,
           remainPrice: 400000,
           percentage: 60.0,
-          uploadFileNames: ["https://via.placeholder.com/150"],
+          uploadFileNames: ["https://www.ccmessage.kr/news/photo/202003/12089_44411_0508.jpg"],
         },
         {
           id: 2,
@@ -35,7 +35,7 @@ const FundingList = () => {
           nowPrice: 1500000,
           remainPrice: 500000,
           percentage: 75.0,
-          uploadFileNames: ["https://via.placeholder.com/150"],
+          uploadFileNames: ["https://png.pngtree.com/background/20211215/original/pngtree-youth-college-students-studying-in-campus-classroom-picture-image_1493664.jpg"],
         },
         {
           id: 3,
@@ -48,7 +48,7 @@ const FundingList = () => {
           nowPrice: 400000,
           remainPrice: 400000,
           percentage: 50.0,
-          uploadFileNames: ["https://via.placeholder.com/150"],
+          uploadFileNames: ["https://lh6.googleusercontent.com/proxy/ZRWtf7th5UJ_ElPI8bC_8s5osTRp2kd45KUweIfmpbI2eAgZdfjOpwAptvY9GOq9ZZagYD89bNOoV419OKzFCkQrAh9OV5LygFlMffDWynU"],
         },
         {
           id: 4,
@@ -61,7 +61,7 @@ const FundingList = () => {
           nowPrice: 1000000,
           remainPrice: 500000,
           percentage: 66.7,
-          uploadFileNames: ["https://via.placeholder.com/150"],
+          uploadFileNames: ["https://lh3.googleusercontent.com/proxy/HfTyt6FhBzQmDlpCTFQFIJkn-4RXE-4nur4QJdxY_-JzUz0gix85YcHGAUFCfwRLr5ziDymzcw4Ne47cT_cR1pnSUsUipCGTtigq-aNssH8q"],
         },
         {
           id: 5,
@@ -74,7 +74,7 @@ const FundingList = () => {
           nowPrice: 300000,
           remainPrice: 200000,
           percentage: 60.0,
-          uploadFileNames: ["https://via.placeholder.com/150"],
+          uploadFileNames: ["https://cdn.hkbs.co.kr/news/photo/202405/754384_490152_2834.jpg"],
         },
         {
           id: 6,
@@ -87,7 +87,7 @@ const FundingList = () => {
           nowPrice: 600000,
           remainPrice: 400000,
           percentage: 60.0,
-          uploadFileNames: ["https://via.placeholder.com/150"],
+          uploadFileNames: ["https://cdn.m-i.kr/news/photo/202301/977679_740350_439.jpg"],
         },
       ],
       pageRequest: {
