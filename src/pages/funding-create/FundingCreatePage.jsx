@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ImageIcon from "../../assets/icons/Image.svg";
 import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css"; 
 
 const FundingCreatePage = () => {
@@ -12,6 +13,7 @@ const FundingCreatePage = () => {
   const [image, setImage] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const navigate = useNavigate();
 
   // 페이지 로드 시 기본 날짜 범위 설정
   useEffect(() => {
@@ -24,6 +26,11 @@ const FundingCreatePage = () => {
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    alert("작성이 완료되었습니다.");
+    navigate("/");
   };
 
   const handleContentChange = (e) => {
@@ -130,8 +137,7 @@ const FundingCreatePage = () => {
             onChange={handleImageChange}
           />
         </Image>
-
-        <ConfirmButton>펀딩 작성하기</ConfirmButton>
+        <ConfirmButton onClick={handleSubmit}>펀딩 작성하기</ConfirmButton>
       </Content>
     </Container>
   );

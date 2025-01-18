@@ -77,6 +77,7 @@ const LoginPage = () => {
           <Line />
         </CommentDivider>
         <LoginButton href="http://43.201.161.96:8080/oauth2/authorization/naver">
+
           <img
             src={NaverLogo}
             style={{ width: "25px", marginRight: "150px" }}

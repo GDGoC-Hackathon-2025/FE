@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
-
+import { authInstance } from "../../shared/Request"
 import LikesIcon from "../../assets/icons/LikesIcon.svg";
 import ComplainCard from "../../components/ComplainCard";
 import ContentSection from "./ContentSection";
@@ -35,6 +35,34 @@ const FundingDetail = () => {
       uploadFileNames: ["example-image.jpg"],
     },
     error: null,
+  };
+
+  const handleSupportClick = async () => {
+    try {
+      // 요청 데이터 생성
+      const requestBody = { productId: id };
+
+      // 요청 보내기
+      const response = await authInstance.post("/order", requestBody);
+
+      // 성공 응답 처리
+      if (response.data.success) {
+        const { orderId, orderName, amount, customerName, customerEmail, customerMobilePhone } = response.data.data;
+
+        alert(
+          `펀딩 후원이 성공적으로 완료되었습니다!\n주문 ID: ${orderId}\n주문 이름: ${orderName}\n금액: ${amount}\n고객 이름: ${customerName}\n고객 이메일: ${customerEmail}\n고객 전화번호: ${customerMobilePhone}`
+        );
+      } else {
+        alert("펀딩 후원 중 문제가 발생했습니다.");
+      }
+    } catch (error) {
+      // 에러 응답 처리
+      if (error.response?.data?.error) {
+        alert(`에러 발생: ${error.response.data.error.message}`);
+      } else {
+        alert("펀딩 후원 요청에 실패했습니다.");
+      }
+    }
   };
 
   const { id } = useParams();
@@ -124,7 +152,7 @@ const FundingDetail = () => {
       </Content>
 
       <ButtonContainer>
-        <SupportButton>프로젝트 후원하기</SupportButton>
+        <SupportButton onClick={handleSupportClick}>프로젝트 후원하기</SupportButton>
         <Likes>
           <img src={LikesIcon} alt="likes" />
           <LikesCount>10</LikesCount>
