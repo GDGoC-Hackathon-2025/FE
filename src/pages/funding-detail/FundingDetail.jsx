@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
-import { authInstance } from "../../shared/Request"
+import { authInstance } from "../../shared/Request";
 import LikesIcon from "../../assets/icons/LikesIcon.svg";
 import ComplainCard from "../../components/ComplainCard";
 import ContentSection from "./ContentSection";
@@ -12,21 +12,14 @@ const FundingDetail = () => {
     success: true,
     data: {
       id: 14,
-      boardName: "환경 보호 캠페인",
-      pname: "쓰레기 없는 거리 만들기 프로젝트",
-      pdesc: `이 프로젝트는 단순한 환경 보호 활동이 아니라, 지역 사회와 협력하여 지속 가능한 변화를 이끌어내기 위한 대규모 캠페인입니다. 우리의 목표는 단순히 거리의 쓰레기를 청소하는 것을 넘어, 지역 주민들이 환경 문제를 스스로 인식하고, 더 나아가 환경 보호의 주체가 되는 데 있습니다. 이를 위해 우리는 다양한 활동과 프로그램을 기획하고 실행할 예정입니다.
-      
-      현재 우리의 지구는 급격히 변화하고 있습니다. 플라스틱 쓰레기의 급증, 자원의 남용, 기후 변화 등으로 인해 환경은 심각한 위기에 직면해 있습니다. 특히 도심 지역에서는 무분별하게 버려지는 쓰레기와 올바르지 않은 쓰레기 처리 방식으로 인해 환경 오염 문제가 심화되고 있습니다. 이러한 문제를 해결하기 위해서는 개개인의 참여와 실천이 필수적입니다. 그러나 많은 사람들은 환경 문제의 심각성을 충분히 인식하지 못하거나, 어떻게 실천해야 할지에 대해 막연한 두려움을 느끼곤 합니다. 따라서 우리는 주민들에게 환경 문제의 심각성을 알리고, 실질적인 해결 방안을 제시하기 위해 이 프로젝트를 시작하게 되었습니다.
-      
-      우리는 이 프로젝트를 통해 지역 주민들과의 소통과 협력을 강화하고자 합니다. 첫 번째 단계로, 지역 주민들을 대상으로 한 환경 교육 세션을 진행할 예정입니다. 교육 내용은 올바른 분리수거 방법, 플라스틱 사용 줄이기, 재활용 품목의 활용 방안 등을 포함할 것입니다. 이러한 교육을 통해 주민들은 단순히 정보를 제공받는 데 그치지 않고, 환경 보호를 위한 실질적인 방법을 익힐 수 있을 것입니다. 특히, 어린이와 청소년을 대상으로 한 맞춤형 프로그램을 통해 환경 보호의 중요성을 조기에 인식시킬 계획입니다. 이는 다음 세대가 환경 보호에 대한 올바른 가치를 형성하고, 지속 가능한 삶의 방식을 실천할 수 있도록 돕는 데 큰 기여를 할 것입니다.
-      
-      두 번째 단계는 지역 내 주요 거리와 공원에서 쓰레기 줍기 행사를 진행하는 것입니다. 이 행사는 단순한 청소 활동이 아니라, 지역 커뮤니티가 함께 협력하고 환경 보호를 체감할 수 있는 기회로 기획되었습니다. 참가자들은 쓰레기 줍기 활동을 통해 환경 오염의 심각성을 직접 느끼게 될 것입니다. 또한, 행사 이후에는 참가자들이 자신의 경험을 공유하고, 더 나은 환경을 만들기 위해 할 수 있는 다른 방법들을 논의할 수 있는 시간을 마련할 예정입니다. 이러한 활동은 지역 사회의 결속력을 강화하고, 환경 보호에 대한 관심과 참여를 이끌어내는 데 큰 역할을 할 것입니다.
-      
-      세 번째 단계로는 쓰레기 처리 시스템의 개선을 목표로 하고 있습니다. 우리는 지역 정부 및 기업과 협력하여 더 많은 쓰레기통을 설치하고, 효율적인 쓰레기 수거 및 처리를 위한 시스템을 도입할 계획입니다. 특히, 재활용 쓰레기와 일반 쓰레기를 쉽게 구분할 수 있는 스마트 쓰레기통을 도입하여 주민들이 보다 쉽게 분리수거를 할 수 있도록 지원할 예정입니다. 이러한 시스템은 쓰레기 처리의 효율성을 높이는 동시에, 주민들에게 환경 보호의 중요성을 다시 한번 인식시키는 계기가 될 것입니다.
-      
-      마지막으로, 우리는 이 프로젝트가 단발성 이벤트로 끝나지 않고, 지속 가능한 활동으로 자리 잡을 수 있도록 노력할 것입니다. 이를 위해 주민들과의 소통을 지속적으로 유지하며, 프로젝트의 성과를 꾸준히 공유할 계획입니다. 또한, 지역 학교와 기업을 대상으로 환경 보호와 관련된 워크숍과 세미나를 정기적으로 개최하여 더 많은 사람들이 환경 보호에 동참할 수 있는 기회를 제공할 것입니다.
-      
-      이 프로젝트는 단순히 쓰레기를 줄이는 활동이 아니라, 지역 주민들이 자신의 삶의 방식을 돌아보고, 더 나은 미래를 위한 변화를 실천할 수 있도록 돕는 데 목적이 있습니다. 우리가 사는 지구는 우리가 함께 보호해야 할 소중한 자산입니다. 작은 실천이 모여 큰 변화를 만들 수 있음을 믿으며, 우리는 이 프로젝트를 통해 더 많은 사람들이 환경 보호의 중요성을 깨닫고 행동할 수 있도록 최선을 다할 것입니다.`,
+      boardName: "교육",
+      pname: "아산시 개발 교육 지원 프로그램 개설",
+      pdesc: `아산시에 국비 지원으로 진행되는 개발 교육 프로그램이 없어 지역 청년들이 취업 준비 과정에서 큰 어려움을 겪고 있습니다.
+수도권에서는 다양한 국비 지원 교육이 활성화되어 청년들이 취업에 필요한 기술과 지식을 배우고 있지만, 아산시에서는 이러한 기회를 얻기 어려운 상황입니다.
+
+특히 IT와 소프트웨어 개발 분야에서 경쟁력을 갖추기 위해서는 체계적인 교육과 실습이 필수적입니다. 지역 내에서 이를 제공하는 프로그램을 개설하여, 청년들이 수도권으로 이동하지 않고도 전문성을 기를 수 있도록 돕고자 합니다.
+
+이 프로젝트는 지역 청년들의 취업률을 높이고, 지역 경제 활성화에도 기여할 것입니다.`,
       price: 125500000,
       goalPrice: 200000000,
       nowPrice: 125500000,
@@ -47,7 +40,14 @@ const FundingDetail = () => {
 
       // 성공 응답 처리
       if (response.data.success) {
-        const { orderId, orderName, amount, customerName, customerEmail, customerMobilePhone } = response.data.data;
+        const {
+          orderId,
+          orderName,
+          amount,
+          customerName,
+          customerEmail,
+          customerMobilePhone,
+        } = response.data.data;
 
         alert(
           `펀딩 후원이 성공적으로 완료되었습니다!\n주문 ID: ${orderId}\n주문 이름: ${orderName}\n금액: ${amount}\n고객 이름: ${customerName}\n고객 이메일: ${customerEmail}\n고객 전화번호: ${customerMobilePhone}`
@@ -133,8 +133,8 @@ const FundingDetail = () => {
               </ProgressPercentage>
             </ProgressWrapper>
             <InfoRow>
-              <InfoTitle>남은 시간</InfoTitle>
-              <InfoValue className="big">2 일</InfoValue>{" "}
+              <InfoTitle>남은 기간</InfoTitle>
+              <InfoValue className="big">12 일</InfoValue>{" "}
               {/* 시간 계산은 추가 구현 필요 */}
             </InfoRow>
             <InfoRow>
@@ -143,7 +143,7 @@ const FundingDetail = () => {
             </InfoRow>
             <InfoRow>
               <InfoTitle>펀딩 기간</InfoTitle>
-              <InfoValue>2025.01.17~2025.01.31</InfoValue>{" "}
+              <InfoValue>2025.01.10~2025.01.31</InfoValue>{" "}
               {/* 기간 데이터 추가 필요 */}
             </InfoRow>
           </Info>
@@ -152,7 +152,9 @@ const FundingDetail = () => {
       </Content>
 
       <ButtonContainer>
-        <SupportButton onClick={handleSupportClick}>프로젝트 후원하기</SupportButton>
+        <SupportButton onClick={handleSupportClick}>
+          프로젝트 후원하기
+        </SupportButton>
         <Likes>
           <img src={LikesIcon} alt="likes" />
           <LikesCount>10</LikesCount>
