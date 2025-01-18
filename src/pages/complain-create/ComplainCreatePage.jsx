@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ImageIcon from "../../assets/icons/Image.svg";
+import { useNavigate } from "react-router-dom";
 
 const ComplainCreatePage = () => {
   const [title, setTitle] = useState("");
@@ -9,6 +10,7 @@ const ComplainCreatePage = () => {
   const [endDate, setEndDate] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(""); // 선택된 카테고리 상태
   const [image, setImage] = useState(null); // 선택된 이미지 상태
+  const navigate = useNavigate(); 
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -16,6 +18,11 @@ const ComplainCreatePage = () => {
 
   const handleContentChange = (e) => {
     setContent(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    alert("작성이 완료되었습니다.");
+    navigate("/");
   };
 
   const handleEndDateChange = (e) => {
@@ -51,7 +58,7 @@ const ComplainCreatePage = () => {
         <TitleLabel>작성일</TitleLabel>
         <DateInput type="date" value={date} readOnly />
 
-        <TitleLabel>민원 마감일</TitleLabel>
+        <TitleLabel>요청 마감일</TitleLabel>
         <EndDateWrapper>
           <EndDateInput type="date" value={endDate} onChange={handleEndDateChange} />
         </EndDateWrapper>
@@ -93,7 +100,7 @@ const ComplainCreatePage = () => {
           />
         </Image>
 
-        <ConfirmButton>민원 게시하기</ConfirmButton>
+        <ConfirmButton onClick={handleSubmit}>요청 게시하기</ConfirmButton>
       </Content>
     </Container>
   );
