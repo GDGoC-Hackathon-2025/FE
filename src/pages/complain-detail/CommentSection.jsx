@@ -8,15 +8,33 @@ const CommentSection = ({}) => {
   const [comments, setComments] = useState([
     {
       id: 1,
-      username: "콩콩",
-      text: "우와~ 저도 지난 주에 다녀왔는데 여기는 정말...",
+      username: "나리",
+      text: "우와~ 진행되면 리액트고수가 될 거 같아!!",
       date: "2024. 08. 30. 22:30",
     },
     {
       id: 2,
-      username: "쿠쿠",
-      text: "좋은 정보 감사합니다!",
+      username: "도연",
+      text: "개발 배워서 백야 해커톤 나가야지!",
       date: "2024. 08. 30. 22:31",
+    },
+    {
+      id: 3,
+      username: "영록",
+      text: "상받고싶다...",
+      date: "2024. 08. 30. 22:34",
+    },
+    {
+      id: 4,
+      username: "윤지",
+      text: "삽질을 하다보면 더 나아지겠죠..??",
+      date: "2024. 08. 30. 22:36",
+    },
+    {
+      id: 5,
+      username: "예령",
+      text: "똑똑해지고 싶어요ㅜㅜㅜ~",
+      date: "2024. 08. 30. 22:38",
     },
   ]);
 

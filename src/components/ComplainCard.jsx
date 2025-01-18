@@ -38,7 +38,7 @@ const ComplainCard = ({
             <LikesCount>10</LikesCount>
           </Likes>
           <DDay>
-            <DDayText>D-18</DDayText>
+            <DDayText>D-10</DDayText>
           </DDay>
         </ButtonContainer>
       </ActionFooter>

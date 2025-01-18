@@ -3,9 +3,9 @@ import ComplainCard from "../../components/ComplainCard";
 
 import styled from "styled-components";
 import axios from "axios";
+import { defaultInstance } from "../../shared/Request";
 
 // API 호출을 위한 기본 URL (변경 필요)
-const API_URL = "https://api.example.com/data";
 
 const CommonComplain = () => {
   const dummyData = {
@@ -14,100 +14,102 @@ const CommonComplain = () => {
       dtoList: [
         {
           id: 1,
-          title: "지역 환경 개선 프로젝트",
+          title: "아산시 개발 교육 지원 요청",
           contents:
-            "지역의 공원과 거리를 정비하여 깨끗하고 살기 좋은 환경을 만드는 프로젝트입니다.",
+            "아산시에 국비 지원 개발 교육 프로그램이 없어서 취업 준비에 어려움을 겪고 있습니다. 지역 청년들을 위해 해당 프로그램 개설을 요청합니다.",
           endDate: "2025-02-01",
-          commentCount: 15,
-          likesCount: 120,
+          commentCount: 12,
+          likesCount: 110,
           dDay: 10,
         },
         {
           id: 2,
-          title: "청년 취업 지원 프로그램",
+          title: "전통시장 활성화 요청",
           contents:
-            "청년들에게 취업과 관련된 다양한 교육과 기회를 제공하는 프로그램입니다.",
+            "지역 전통시장에 푸드코트나 문화 행사가 없어 방문객이 줄고 있습니다. 시장 활성화를 위한 대책 마련을 요청드립니다.",
           endDate: "2025-01-25",
-          commentCount: 20,
-          likesCount: 85,
+          commentCount: 15,
+          likesCount: 95,
           dDay: 3,
         },
         {
           id: 3,
-          title: "노후된 시설 리모델링",
+          title: "공공 와이파이 설치 요청",
           contents:
-            "지역 주민들이 자주 이용하는 노후된 공공 시설을 새롭게 리모델링합니다.",
+            "지역 주민들이 공원과 주요 거리에서 무료로 인터넷을 사용할 수 있도록 공공 와이파이 설치를 요청합니다.",
           endDate: "2025-03-15",
-          commentCount: 5,
-          likesCount: 30,
+          commentCount: 8,
+          likesCount: 45,
           dDay: 52,
         },
         {
           id: 4,
-          title: "친환경 에너지 보급 프로젝트",
+          title: "골목길 조명 개선 요청",
           contents:
-            "태양광 패널과 같은 친환경 에너지 설비를 지역 곳곳에 설치합니다.",
+            "야간에 골목길이 너무 어두워 안전 문제가 우려됩니다. 주민들이 안심하고 다닐 수 있도록 조명 설치를 요청합니다.",
           endDate: "2025-02-20",
-          commentCount: 12,
+          commentCount: 10,
           likesCount: 150,
           dDay: 29,
         },
         {
           id: 5,
-          title: "학교 내 교육 환경 개선",
+          title: "지역 문화센터 신설 요청",
           contents:
-            "지역 학교의 교육 환경을 개선하고 학생들에게 더 나은 학습 공간을 제공합니다.",
+            "지역 주민들이 다양한 취미 활동을 즐기고 배울 수 있도록 문화센터 신설을 요청합니다.",
           endDate: "2025-01-30",
-          commentCount: 8,
-          likesCount: 60,
+          commentCount: 6,
+          likesCount: 70,
           dDay: 8,
         },
         {
           id: 6,
-          title: "지역 문화 행사 개최",
-          contents: "지역 주민들이 함께 즐길 수 있는 문화 행사를 개최합니다.",
+          title: "청소년 놀이 공간 조성",
+          contents:
+            "청소년들이 안전하게 놀고 교류할 수 있는 전용 공간이 필요합니다. 지역 내 청소년 놀이 공간 조성을 요청합니다.",
           endDate: "2025-03-01",
-          commentCount: 25,
-          likesCount: 90,
+          commentCount: 20,
+          likesCount: 85,
           dDay: 38,
         },
         {
           id: 7,
-          title: "노인 복지 지원 프로그램",
-          contents: "노인들에게 필요한 복지 서비스를 제공하고 지원합니다.",
+          title: "노후된 공원 시설 개선 요청",
+          contents:
+            "지역 공원의 시설이 오래되어 안전사고 위험이 큽니다. 공원 시설의 재정비와 개선을 요청합니다.",
           endDate: "2025-02-10",
-          commentCount: 10,
-          likesCount: 75,
+          commentCount: 12,
+          likesCount: 90,
           dDay: 19,
         },
         {
           id: 8,
-          title: "청소년 건강 프로그램",
+          title: "지역 마을버스 노선 확대",
           contents:
-            "청소년들의 신체와 정신 건강을 지원하기 위한 프로그램입니다.",
+            "대중교통이 부족하여 주민들이 이동에 불편을 겪고 있습니다. 마을버스 노선 확대를 요청드립니다.",
           endDate: "2025-02-15",
-          commentCount: 18,
-          likesCount: 100,
+          commentCount: 14,
+          likesCount: 110,
           dDay: 24,
         },
         {
           id: 9,
-          title: "재활용 활성화 캠페인",
+          title: "학교 방과후 프로그램 확대",
           contents:
-            "지역 주민들에게 재활용의 중요성을 알리고 참여를 독려하는 캠페인입니다.",
+            "지역 초등학교의 방과후 프로그램이 부족하여 학부모들의 요구를 충족하지 못하고 있습니다. 프로그램 확대를 요청합니다.",
           endDate: "2025-01-28",
-          commentCount: 7,
-          likesCount: 50,
+          commentCount: 5,
+          likesCount: 65,
           dDay: 6,
         },
         {
           id: 10,
-          title: "지역 보건소 확충 프로젝트",
+          title: "지역 의료시설 추가 설치 요청",
           contents:
-            "지역 주민들이 더 쉽게 의료 서비스를 받을 수 있도록 보건소를 확충합니다.",
+            "응급 상황 시 의료시설 부족으로 불편을 겪고 있습니다. 지역 내 의료시설을 추가로 설치해 주시길 요청드립니다.",
           endDate: "2025-02-25",
-          commentCount: 22,
-          likesCount: 140,
+          commentCount: 18,
+          likesCount: 130,
           dDay: 34,
         },
       ],
@@ -140,7 +142,7 @@ const CommonComplain = () => {
   const fetchData = async (page = 1, category = "전체") => {
     setLoading(true);
     try {
-      const response = await axios.get(API_URL, {
+      const response = await defaultInstance.get("", {
         params: { page, size: 6, category },
       });
 
