@@ -58,7 +58,7 @@ const ComplainCreatePage = () => {
         <TitleLabel>작성일</TitleLabel>
         <DateInput type="date" value={date} readOnly />
 
-        <TitleLabel>민원 마감일</TitleLabel>
+        <TitleLabel>요청 마감일</TitleLabel>
         <EndDateWrapper>
           <EndDateInput type="date" value={endDate} onChange={handleEndDateChange} />
         </EndDateWrapper>
@@ -100,7 +100,7 @@ const ComplainCreatePage = () => {
           />
         </Image>
 
-        <ConfirmButton onClick={handleSubmit}>민원 게시하기</ConfirmButton>
+        <ConfirmButton onClick={handleSubmit}>요청 게시하기</ConfirmButton>
       </Content>
     </Container>
   );
