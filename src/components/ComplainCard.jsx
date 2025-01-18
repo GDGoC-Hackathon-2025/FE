@@ -31,11 +31,11 @@ const ComplainCard = ({
         <ButtonContainer>
           <Comments>
             <img src={CommentIcon} alt="comment" />
-            <CommentCount>10</CommentCount>
+            <CommentCount>5</CommentCount>
           </Comments>
           <Likes>
             <img src={LikesIcon} alt="likes" />
-            <LikesCount>10</LikesCount>
+            <LikesCount>128</LikesCount>
           </Likes>
           <DDay>
             <DDayText>D-{complain.dDay}</DDayText>

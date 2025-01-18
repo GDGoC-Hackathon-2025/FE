@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import NaverLogo from "../../assets/icons/NaverLogo.svg";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext"; // AuthContext 사용
 
 const PageContainer = styled.div`
   display: flex;
@@ -66,7 +68,20 @@ const DividerText = styled.span`
   color: #333; /* 텍스트 색상 */
   white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 `;
+
+
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth(); // login 함수 가져오기
+
+  const handleLogin = () => {
+    login(); // 로그인 상태 업데이트
+    setTimeout(() => {
+      navigate("/"); // 2초 후 '/' 경로로 이동
+    }, 1000); // 2000ms = 2초
+  };
+
   return (
     <PageContainer>
       <Logo>이거해줘</Logo>
@@ -76,11 +91,11 @@ const LoginPage = () => {
           <DividerText>소셜 로그인하기</DividerText>
           <Line />
         </CommentDivider>
-        <LoginButton href="http://43.201.161.96:8080/oauth2/authorization/naver">
-
+        <LoginButton onClick={handleLogin}>
           <img
             src={NaverLogo}
             style={{ width: "25px", marginRight: "150px" }}
+            alt="Naver Logo"
           />
           네이버로 시작하기
         </LoginButton>
