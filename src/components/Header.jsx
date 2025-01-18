@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
+import { useAuth } from "../context/AuthContext";
 const Header = () => {
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth(); // 로그인 상태를 Context에서 가져오기
+
   const handleRedirect = () => {
     navigate('/');
-  }
+  };
 
   return (
     <HeaderContainer>
@@ -17,7 +19,11 @@ const Header = () => {
         <NavLink to="/">해줘</NavLink>
         <Divider></Divider>
         <NavLink to="/funding">돈줘</NavLink>
-        <LoginButton onClick={() => navigate("auth")}>Login</LoginButton>
+        {isLoggedIn ? (
+          <LoginButton onClick={() => navigate("/my")}>My</LoginButton>
+        ) : (
+          <LoginButton onClick={() => navigate("/auth")}>Login</LoginButton>
+        )}
       </Nav>
     </HeaderContainer>
   );
@@ -31,6 +37,7 @@ const Divider = styled.div`
   opacity: 0.5;
   border-left: 1px solid black;
 `;
+
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
