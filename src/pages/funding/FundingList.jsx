@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import FundingCard from "../../components/FundingCard";
+import { defaultInstance } from "../../shared/Request";
 
 // API 호출을 위한 기본 URL (변경 필요)
 const API_URL = "https://api.example.com/data";
@@ -13,81 +14,107 @@ const FundingList = () => {
       dtoList: [
         {
           id: 1,
-          boardName: "환경 보호 캠페인",
-          pname: "쓰레기 없는 거리 만들기",
+          boardName: "교육 프로젝트",
+          pname: "아산시 국비 지원 개발 수업",
           pdesc:
-            "지역 주민들과 함께 쓰레기를 치우는 활동입니다. 깨끗한 환경을 유지하기 위해 함께 참여해주세요!",
-          price: 500000,
-          goalPrice: 1000000,
-          nowPrice: 600000,
-          remainPrice: 400000,
+            "아산시에 국비 지원으로 진행되는 개발 교육 프로그램을 도입하기 위한 프로젝트입니다. 지역 청년들에게 더 많은 기회를 제공합니다.",
+          price: 2000000,
+          goalPrice: 5000000,
+          nowPrice: 3000000,
+          remainPrice: 2000000,
           percentage: 60.0,
-          uploadFileNames: ["https://www.ccmessage.kr/news/photo/202003/12089_44411_0508.jpg"],
+          uploadFileNames: ["https://via.placeholder.com/150"],
         },
         {
           id: 2,
-          boardName: "일자리 창출 프로젝트",
-          pname: "청년 취업 지원",
+          boardName: "문화 활동 지원",
+          pname: "소규모 공연장 설립",
           pdesc:
-            "청년들을 위한 일자리 프로그램으로 다양한 직무 교육을 제공합니다. 지역 경제 활성화에 기여해주세요!",
-          price: 1000000,
-          goalPrice: 2000000,
-          nowPrice: 1500000,
-          remainPrice: 500000,
-          percentage: 75.0,
-          uploadFileNames: ["https://png.pngtree.com/background/20211215/original/pngtree-youth-college-students-studying-in-campus-classroom-picture-image_1493664.jpg"],
+            "지역 주민들을 위한 소규모 공연장을 설립하여 다양한 문화 활동을 지원하는 프로젝트입니다.",
+          price: 5000000,
+          goalPrice: 10000000,
+          nowPrice: 6000000,
+          remainPrice: 4000000,
+          percentage: 60.0,
+          uploadFileNames: ["https://via.placeholder.com/150"],
         },
         {
           id: 3,
-          boardName: "지역 시설 개선",
-          pname: "노후된 공원 재정비",
+          boardName: "공간 개선",
+          pname: "노후 공원 재정비",
           pdesc:
-            "지역 주민들이 안전하고 편안하게 이용할 수 있도록 공원을 새롭게 정비하는 프로젝트입니다.",
-          price: 300000,
-          goalPrice: 800000,
-          nowPrice: 400000,
-          remainPrice: 400000,
+            "아산시 노후 공원을 새롭게 정비하여 주민들에게 더 안전하고 쾌적한 환경을 제공합니다.",
+          price: 1000000,
+          goalPrice: 3000000,
+          nowPrice: 1500000,
+          remainPrice: 1500000,
           percentage: 50.0,
-          uploadFileNames: ["https://lh6.googleusercontent.com/proxy/ZRWtf7th5UJ_ElPI8bC_8s5osTRp2kd45KUweIfmpbI2eAgZdfjOpwAptvY9GOq9ZZagYD89bNOoV419OKzFCkQrAh9OV5LygFlMffDWynU"],
+          uploadFileNames: ["https://via.placeholder.com/150"],
         },
         {
           id: 4,
-          boardName: "안전 프로젝트",
-          pname: "어린이 보호구역 개선",
+          boardName: "지역 발전",
+          pname: "청년 창업 지원 센터 설립",
           pdesc:
-            "어린이들의 안전을 위한 보호구역 정비와 교통안전 시설 설치 프로젝트입니다.",
-          price: 800000,
-          goalPrice: 1500000,
-          nowPrice: 1000000,
-          remainPrice: 500000,
-          percentage: 66.7,
-          uploadFileNames: ["https://lh3.googleusercontent.com/proxy/HfTyt6FhBzQmDlpCTFQFIJkn-4RXE-4nur4QJdxY_-JzUz0gix85YcHGAUFCfwRLr5ziDymzcw4Ne47cT_cR1pnSUsUipCGTtigq-aNssH8q"],
+            "아산시에 청년 창업 지원 센터를 설립하여 지역 내 청년 창업자들을 위한 교육과 자원을 제공합니다.",
+          price: 8000000,
+          goalPrice: 20000000,
+          nowPrice: 12000000,
+          remainPrice: 8000000,
+          percentage: 60.0,
+          uploadFileNames: ["https://via.placeholder.com/150"],
         },
         {
           id: 5,
-          boardName: "환경 보호 캠페인",
-          pname: "재활용 교육 프로그램",
+          boardName: "지역 활성화",
+          pname: "전통시장 푸드코트 설치",
           pdesc:
-            "재활용의 중요성을 알리고 주민들에게 올바른 재활용 방법을 교육하는 캠페인입니다.",
-          price: 200000,
-          goalPrice: 500000,
-          nowPrice: 300000,
-          remainPrice: 200000,
-          percentage: 60.0,
-          uploadFileNames: ["https://cdn.hkbs.co.kr/news/photo/202405/754384_490152_2834.jpg"],
+            "지역 전통시장 내 푸드코트를 조성하여 소상공인과 지역 주민 모두에게 활력을 불어넣는 프로젝트입니다.",
+          price: 3000000,
+          goalPrice: 7000000,
+          nowPrice: 4000000,
+          remainPrice: 3000000,
+          percentage: 57.1,
+          uploadFileNames: ["https://via.placeholder.com/150"],
         },
         {
           id: 6,
-          boardName: "시설 개선 프로젝트",
-          pname: "공공 화장실 리모델링",
+          boardName: "안전 프로젝트",
+          pname: "지역 어린이 안전 시설 확충",
           pdesc:
-            "지역 주민들이 편안하게 사용할 수 있도록 공공 화장실을 리모델링하는 프로젝트입니다.",
-          price: 400000,
-          goalPrice: 1000000,
-          nowPrice: 600000,
-          remainPrice: 400000,
-          percentage: 60.0,
-          uploadFileNames: ["https://cdn.m-i.kr/news/photo/202301/977679_740350_439.jpg"],
+            "어린이 보호구역에 교통안전 시설을 설치하여 안전한 환경을 제공하는 프로젝트입니다.",
+          price: 1000000,
+          goalPrice: 2500000,
+          nowPrice: 1200000,
+          remainPrice: 1300000,
+          percentage: 48.0,
+          uploadFileNames: ["https://via.placeholder.com/150"],
+        },
+        {
+          id: 7,
+          boardName: "문화 발전 프로젝트",
+          pname: "지역 독립 서점 설립 지원",
+          pdesc:
+            "지역 주민들이 독서를 통해 지식을 공유하고, 지역 문화를 활성화할 수 있도록 독립 서점을 설립하는 프로젝트입니다.",
+          price: 1500000,
+          goalPrice: 4000000,
+          nowPrice: 2500000,
+          remainPrice: 1500000,
+          percentage: 62.5,
+          uploadFileNames: ["https://via.placeholder.com/150"],
+        },
+        {
+          id: 8,
+          boardName: "환경 개선",
+          pname: "지역 하천 정화 프로젝트",
+          pdesc:
+            "지역 하천의 오염 문제를 해결하고 깨끗한 자연 환경을 복원하기 위한 주민 참여 프로젝트입니다.",
+          price: 1000000,
+          goalPrice: 5000000,
+          nowPrice: 2000000,
+          remainPrice: 3000000,
+          percentage: 40.0,
+          uploadFileNames: ["https://via.placeholder.com/150"],
         },
       ],
       pageRequest: {
@@ -105,6 +132,7 @@ const FundingList = () => {
     },
     error: null,
   };
+
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -115,9 +143,7 @@ const FundingList = () => {
   const fetchData = async (page = 1, category = "전체") => {
     setLoading(true);
     try {
-      const response = await axios.get(API_URL, {
-        params: { page, size: 6, category },
-      });
+      const response = await defaultInstance.get("/funding/list?category=WORK");
       const { dtoList, totalPage } = response.data.data;
 
       setData(dtoList);
