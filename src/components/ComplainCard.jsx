@@ -3,10 +3,14 @@ import styled from "styled-components";
 import CommentIcon from "../assets/icons/CommentIcon.svg";
 
 import LikesIcon from "../assets/icons/LikesIcon.svg";
+import { useNavigate } from "react-router-dom";
 
 const ComplainCard = () => {
+  const navigate = useNavigate();
+  const id = "1";
+
   return (
-    <ComplainCardWrapper>
+    <ComplainCardWrapper onClick={() => navigate(`complain/${id}`)}>
       <Contents>
         <Location>아산시</Location>
         <Title>아산시도 오프라인 국비지원아산시도 오프라인 국비지원</Title>

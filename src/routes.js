@@ -4,6 +4,7 @@ import LoginPage from "./pages/login/LoginPage";
 import ComplainPage from "./pages/complain/Complain";
 import Header from "./components/Header";
 import ComplainCreatePage from "./pages/complain-create/ComplainCreatePage";
+import ComplainDetail from "./pages/complain-detail/ComplainDetail";
 
 const AppRouter = () => {
   return (
@@ -11,6 +12,7 @@ const AppRouter = () => {
       <Header />
       <Routes>
         <Route path="/" element={<ComplainPage />} />
+        <Route path="/complain/:id" element={<ComplainDetail />} />
         <Route path="/complain/create" element={<ComplainCreatePage />} />
         <Route path="/auth" element={<LoginPage />} />
         <Route path="/funding" element={""} />
