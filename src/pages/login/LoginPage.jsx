@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import NaverLogo from '../../assets/icons/NaverLogo.svg';
-
+import React from "react";
+import styled from "styled-components";
+import NaverLogo from "../../assets/icons/NaverLogo.svg";
 
 const PageContainer = styled.div`
   display: flex;
@@ -13,13 +12,11 @@ const PageContainer = styled.div`
 `;
 
 const Logo = styled.div`
- 
-    font-size: 54px;
-    font-weight: bold;
-    color: #343a40;
-    font-family: "BagelFatOne-Regular";
-    margin-bottom: 100px;
-
+  font-size: 54px;
+  font-weight: bold;
+  color: #343a40;
+  font-family: "BagelFatOne-Regular";
+  margin-bottom: 100px;
 `;
 
 const LoginContainer = styled.div`
@@ -51,13 +48,11 @@ const LoginButton = styled.a`
 `;
 
 const CommentDivider = styled.div`
-  
   display: flex;
   width: 100%;
   align-items: center;
   margin: 20px 0; /* 위아래 여백 */
-  `
-  ;
+`;
 const Line = styled.div`
   width: 100%;
   flex: 1;
@@ -70,24 +65,22 @@ const DividerText = styled.span`
   font-size: 16px; /* 텍스트 크기 */
   color: #333; /* 텍스트 색상 */
   white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-  `
-  ;
-
-
+`;
 const LoginPage = () => {
   return (
     <PageContainer>
-      <Logo>
-        이거해줘
-      </Logo>
+      <Logo>이거해줘</Logo>
       <LoginContainer>
         <CommentDivider>
           <Line />
           <DividerText>소셜 로그인하기</DividerText>
           <Line />
         </CommentDivider>
-        <LoginButton>
-          <img src={NaverLogo} style={{ width: '25px', marginRight: '150px' }} />
+        <LoginButton href="http://43.201.161.96:8080/oauth2/authorization/naver">
+          <img
+            src={NaverLogo}
+            style={{ width: "25px", marginRight: "150px" }}
+          />
           네이버로 시작하기
         </LoginButton>
       </LoginContainer>
