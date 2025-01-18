@@ -5,23 +5,29 @@ import CommentIcon from "../assets/icons/CommentIcon.svg";
 import LikesIcon from "../assets/icons/LikesIcon.svg";
 import { useNavigate } from "react-router-dom";
 
-const ComplainCard = () => {
+const ComplainCard = ({
+  complain = {
+    id: 1,
+    title: "지역 환경 개선 프로젝트",
+    contents:
+      "지역의 공원과 거리를 정비하여 깨끗하고 살기 좋은 환경을 만드는 프로젝트입니다.",
+    endDate: "2025-02-01",
+    commentCount: 15,
+    likesCount: 120,
+    dDay: 10,
+  },
+}) => {
   const navigate = useNavigate();
   const id = "1";
-
   return (
     <ComplainCardWrapper onClick={() => navigate(`complain/${id}`)}>
       <Contents>
         <Location>아산시</Location>
-        <Title>아산시도 오프라인 국비지원아산시도 오프라인 국비지원</Title>
-        <Description>
-          아산시도 오프라인 국비지원 교육을 열어주세요 저도 배우고싶습니다다
-          아산시도 오프라인 국비지원 교육을 열어주세요 저도 니다다 아산시도
-          오프라인 국비지원 교육을 열어주세요
-        </Description>
+        <Title>{complain.title}</Title>
+        <Description>{complain.contents}</Description>
       </Contents>
       <ActionFooter>
-        <Duration>기간: ~2025.02.23</Duration>
+        <Duration>기간: ~{complain.endDate}</Duration>
         <ButtonContainer>
           <Comments>
             <img src={CommentIcon} alt="comment" />

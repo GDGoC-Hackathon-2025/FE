@@ -5,8 +5,11 @@ import ComplainPage from "./pages/complain/Complain";
 import Header from "./components/Header";
 import ComplainCreatePage from "./pages/complain-create/ComplainCreatePage";
 import FundingCreatePage from "./pages/funding-create/FundingCreatePage";
+import FundingList from "./pages/funding/FundingList";
+import FundingDetail from "./pages/funding-detail/FundingDetail";
 import LoginInfoPage from "./pages/login-info/LoginInfoPage";
 import MyPage from "./pages/my/MyPage";
+
 
 const AppRouter = () => {
   const location = useLocation();
@@ -21,7 +24,8 @@ const AppRouter = () => {
         <Route path="/complain/create" element={<ComplainCreatePage />} />
         <Route path="/auth" element={<LoginPage />} />
         <Route path="/auth/info" element={<LoginInfoPage />} />
-        <Route path="/funding" element={""} />
+        <Route path="/funding" element={<FundingList />} />
+        <Route path="/funding/:id" element={<FundingDetail />} />
         <Route path="/funding/create" element={<FundingCreatePage />} />
         <Route path="/payment" element={""} />
         <Route path="/my" element={<MyPage/>} />
