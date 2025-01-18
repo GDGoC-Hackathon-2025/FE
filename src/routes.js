@@ -8,7 +8,7 @@ import ComplainCreatePage from "./pages/complain-create/ComplainCreatePage";
 import ComplainDetail from "./pages/complain-detail/ComplainDetail";
 
 import FundingCreatePage from "./pages/funding-create/FundingCreatePage";
-
+import FundingList from "./pages/funding/FundingList";
 
 const AppRouter = () => {
   return (
@@ -19,8 +19,8 @@ const AppRouter = () => {
         <Route path="/complain/:id" element={<ComplainDetail />} />
         <Route path="/complain/create" element={<ComplainCreatePage />} />
         <Route path="/auth" element={<LoginPage />} />
-        <Route path="/funding" element={""} />
-        <Route path="/funding/create" element={<FundingCreatePage/>} />
+        <Route path="/funding" element={<FundingList />} />
+        <Route path="/funding/create" element={<FundingCreatePage />} />
         <Route path="/payment" element={""} />
       </Routes>
     </Router>
