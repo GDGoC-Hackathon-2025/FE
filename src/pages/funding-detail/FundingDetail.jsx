@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import { authInstance } from "../../shared/Request";
@@ -8,6 +8,7 @@ import ComplainCard from "../../components/ComplainCard";
 import ContentSection from "./ContentSection";
 
 const FundingDetail = () => {
+  const naivgate = useNavigate();
   const dummyData = {
     success: true,
     data: {
@@ -25,44 +26,15 @@ const FundingDetail = () => {
       nowPrice: 1255000,
       remainPrice: 745000,
       percentage: 0.6275,
-      uploadFileNames: ["https://www.tippingkorea.co.kr/data/education/15372337551.png"],
+      uploadFileNames: [
+        "https://www.tippingkorea.co.kr/data/education/15372337551.png",
+      ],
     },
     error: null,
   };
 
   const handleSupportClick = async () => {
-    try {
-      // 요청 데이터 생성
-      const requestBody = { productId: id };
-
-      // 요청 보내기
-      const response = await authInstance.post("/order", requestBody);
-
-      // 성공 응답 처리
-      if (response.data.success) {
-        const {
-          orderId,
-          orderName,
-          amount,
-          customerName,
-          customerEmail,
-          customerMobilePhone,
-        } = response.data.data;
-
-        alert(
-          `펀딩 후원이 성공적으로 완료되었습니다!\n주문 ID: ${orderId}\n주문 이름: ${orderName}\n금액: ${amount}\n고객 이름: ${customerName}\n고객 이메일: ${customerEmail}\n고객 전화번호: ${customerMobilePhone}`
-        );
-      } else {
-        alert("펀딩 후원 중 문제가 발생했습니다.");
-      }
-    } catch (error) {
-      // 에러 응답 처리
-      if (error.response?.data?.error) {
-        alert(`에러 발생: ${error.response.data.error.message}`);
-      } else {
-        alert("펀딩 후원 요청에 실패했습니다.");
-      }
-    }
+    naivgate("/funding/payment");
   };
 
   const { id } = useParams();
@@ -112,10 +84,7 @@ const FundingDetail = () => {
       <Content>
         <ImageWrapper>
           {uploadFileNames?.[0] ? (
-            <Image
-              src={`${uploadFileNames[0]}`}
-              alt={pname}
-            />
+            <Image src={`${uploadFileNames[0]}`} alt={pname} />
           ) : (
             <NoImage>이미지 없음</NoImage>
           )}

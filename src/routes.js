@@ -15,6 +15,7 @@ import LoginInfoPage from "./pages/login-info/LoginInfoPage";
 import MyPage from "./pages/my/MyPage";
 import FundingDetail from "./pages/funding-detail/FundingDetail";
 import ComplainDetail from "./pages/complain-detail/ComplainDetail";
+import Payment from "./pages/payment/Payment";
 
 const AppRouter = () => {
   const location = useLocation();
@@ -33,7 +34,7 @@ const AppRouter = () => {
         <Route path="/funding" element={<FundingList />} />
         <Route path="/funding/:id" element={<FundingDetail />} />
         <Route path="/funding/create" element={<FundingCreatePage />} />
-        <Route path="/payment" element={""} />
+        <Route path="/funding/payment" element={<Payment />} />
         <Route path="/my" element={<MyPage />} />
       </Routes>
     </>
