@@ -3,27 +3,21 @@ import styled from "styled-components";
 import CommentIcon from "../assets/icons/CommentIcon.svg";
 
 import LikesIcon from "../assets/icons/LikesIcon.svg";
+import { useNavigate } from "react-router-dom";
 
-const Complain = () => {
+const ComplainCard = () => {
+  const navigate = useNavigate();
+  const id = "1";
+
   return (
-    <ComplainCardWrapper>
+    <ComplainCardWrapper onClick={() => navigate(`complain/${id}`)}>
       <Contents>
         <Location>아산시</Location>
-        <Title>
-          아산시도 오프라인 국비지원아산시도 오프라인 국비지원아산시도 오프라인
-          국비지원도 오프라인 국비지원아도 오프라인 국비지원아산시도 오프라인
-          국비지원도 오프라인 국비지원아산시도 오프라인 국비지원산시도 오프라인
-          국비지원
-        </Title>
+        <Title>아산시도 오프라인 국비지원아산시도 오프라인 국비지원</Title>
         <Description>
           아산시도 오프라인 국비지원 교육을 열어주세요 저도 배우고싶습니다다
           아산시도 오프라인 국비지원 교육을 열어주세요 저도 니다다 아산시도
-          오프라인 국비지원 교육을 열어주세요 저도 배우고싶습니다다 아산시도
-          오프라인 국비지원 교육을 열어주세요 저도 니다다아산시도 오프라인
-          국비지원 교육을 열어주세요 저도 배우고싶습니다다 아산시도 오프라인
-          국비지원 교육을 열어주세요 저도 니다다...아산시도 오프라인 국비지원
-          교육을 열어주세요 저도 배우고싶습니다다 아산시도 오프라인 국비지원
-          교육을 열어주세요 저도 니다다
+          오프라인 국비지원 교육을 열어주세요
         </Description>
       </Contents>
       <ActionFooter>
@@ -46,7 +40,7 @@ const Complain = () => {
   );
 };
 
-export default Complain;
+export default ComplainCard;
 
 const ComplainCardWrapper = styled.div`
   display: flex;
@@ -56,8 +50,8 @@ const ComplainCardWrapper = styled.div`
   height: 200px;
   padding: 25px;
   box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1); /* 하단에 자연스러운 그림자 */
   transition: box-shadow 0.3s ease;
   &:hover {
