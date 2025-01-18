@@ -39,6 +39,7 @@ const CommentSection = ({}) => {
 
     const newCommentObj = {
       id: comments.length + 1,
+      username: "조은",
       text: newComment,
       date: formattedDate,
     };
@@ -56,7 +57,7 @@ const CommentSection = ({}) => {
       </CommentDivider>
       <IconContainer>
         <img src={CommentIcon} alt="comment" />
-        <CommentCount>{`댓글 2개`}</CommentCount>
+        <CommentCount>{`댓글 ${comments.length}개`}</CommentCount>
       </IconContainer>
 
       {comments.map((comment) => (
