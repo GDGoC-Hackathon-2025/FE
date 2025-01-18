@@ -4,9 +4,13 @@ import styled from "styled-components";
 
 const Header = () => {
   const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate('/');
+  }
+
   return (
     <HeaderContainer>
-      <Logo>
+      <Logo onClick={handleRedirect}>
         <span>이거해줘</span>
       </Logo>
       <Nav>
@@ -42,6 +46,7 @@ const Logo = styled.div`
     font-weight: bold;
     color: #343a40;
     font-family: "BagelFatOne-Regular";
+    cursor: pointer;
   }
 `;
 

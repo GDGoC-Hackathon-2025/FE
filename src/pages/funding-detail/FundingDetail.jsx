@@ -20,12 +20,12 @@ const FundingDetail = () => {
 특히 IT와 소프트웨어 개발 분야에서 경쟁력을 갖추기 위해서는 체계적인 교육과 실습이 필수적입니다. 지역 내에서 이를 제공하는 프로그램을 개설하여, 청년들이 수도권으로 이동하지 않고도 전문성을 기를 수 있도록 돕고자 합니다.
 
 이 프로젝트는 지역 청년들의 취업률을 높이고, 지역 경제 활성화에도 기여할 것입니다.`,
-      price: 125500000,
-      goalPrice: 200000000,
-      nowPrice: 125500000,
-      remainPrice: 74500000,
+      price: 1255000,
+      goalPrice: 2000000,
+      nowPrice: 1255000,
+      remainPrice: 745000,
       percentage: 0.6275,
-      uploadFileNames: ["example-image.jpg"],
+      uploadFileNames: ["https://www.tippingkorea.co.kr/data/education/15372337551.png"],
     },
     error: null,
   };
@@ -113,7 +113,7 @@ const FundingDetail = () => {
         <ImageWrapper>
           {uploadFileNames?.[0] ? (
             <Image
-              src={`http://localhost:8080/images/${uploadFileNames[0]}`}
+              src={`${uploadFileNames[0]}`}
               alt={pname}
             />
           ) : (
@@ -221,7 +221,7 @@ const Content = styled.div`
 
 const ImageWrapper = styled.div`
   flex: 1;
-  background: #e0e0e0;
+
   display: flex;
   justify-content: center;
   align-items: center;
