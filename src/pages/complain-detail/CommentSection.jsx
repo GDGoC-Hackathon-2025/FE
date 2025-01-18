@@ -131,6 +131,7 @@ const CommentContent = styled.div`
   flex-direction: column;
   .username {
     font-weight: 700;
+    margin-bottom: 3px;
   }
   .content {
     font-size: 16px;

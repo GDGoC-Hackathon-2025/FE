@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import LikesIcon from "../../assets/icons/LikesIcon.svg";
+import { useNavigate } from "react-router-dom";
 
 const ContentSection = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <HeaderSection>
@@ -36,7 +38,13 @@ const ContentSection = () => {
         민원내용민원내용 민원내용 민원내용 민원내용 민원내용 민원내용 민원내용
         민원내용...
       </Content>
-      <Button>펀딩 오픈하기!</Button>
+      <Button
+        onClick={() => {
+          navigate("/funding/create");
+        }}
+      >
+        펀딩 오픈하기!
+      </Button>
     </div>
   );
 };
