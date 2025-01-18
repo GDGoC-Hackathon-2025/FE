@@ -166,7 +166,7 @@ const CommentInput = styled.div`
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-
+    transition: 0.2 ease-in-out;
     &:hover {
       background-color: #2980b9;
     }
