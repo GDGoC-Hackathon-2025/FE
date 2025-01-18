@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import CommentIcon from "../../assets/icons/CommentIcon.svg";
+
 const CommentSection = ({}) => {
   // 댓글 상태 관리
   const [comments, setComments] = useState([
     {
       id: 1,
+      username: "콩콩",
       text: "우와~ 저도 지난 주에 다녀왔는데 여기는 정말...",
       date: "2024. 08. 30. 22:30",
     },
-    { id: 2, text: "좋은 정보 감사합니다!", date: "2024. 08. 30. 22:31" },
+    {
+      id: 2,
+      username: "쿠쿠",
+      text: "좋은 정보 감사합니다!",
+      date: "2024. 08. 30. 22:31",
+    },
   ]);
 
   const [newComment, setNewComment] = useState(""); // 새로운 댓글 입력값
@@ -41,10 +49,22 @@ const CommentSection = ({}) => {
 
   return (
     <CommentWrapper>
-      <h2>이 민원에 대해 의견을 남겨보세요!</h2>
+      <CommentDivider>
+        <Line />
+        <DividerText>이 민원에 대해 의견을 남겨보세요!</DividerText>
+        <Line />
+      </CommentDivider>
+      <IconContainer>
+        <img src={CommentIcon} alt="comment" />
+        <CommentCount>{`댓글 2개`}</CommentCount>
+      </IconContainer>
+
       {comments.map((comment) => (
         <Comment key={comment.id}>
-          <div className="content">{comment.text}</div>
+          <CommentContent className="content">
+            <div className="username">{comment.username}</div>
+            {comment.text}
+          </CommentContent>
           <div className="date">{comment.date}</div>
         </Comment>
       ))}
@@ -61,10 +81,31 @@ const CommentSection = ({}) => {
 };
 
 export default CommentSection;
+const CommentDivider = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 20px 0; /* 위아래 여백 */
+`;
+const Line = styled.div`
+  flex: 1;
+  height: 1px;
+  background-color: #ccc; /* 선 색상 */
+`;
+const DividerText = styled.span`
+  margin: 0 10px; /* 텍스트와 선 사이의 간격 */
+  font-size: 16px; /* 텍스트 크기 */
+  color: #333; /* 텍스트 색상 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+const CommentCount = styled.p``;
 
 // 댓글 섹션
 const CommentWrapper = styled.div`
-  border-top: 1px solid #bdc3c7;
   padding-top: 20px;
 
   h2 {
@@ -76,16 +117,23 @@ const CommentWrapper = styled.div`
 const Comment = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
-
-  .content {
-    font-size: 16px;
-    color: #34495e;
-  }
-
+  align-items: end;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   .date {
     font-size: 14px;
     color: #7f8c8d;
+  }
+`;
+const CommentContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  .username {
+    font-weight: 700;
+  }
+  .content {
+    font-size: 16px;
+    color: #34495e;
   }
 `;
 
@@ -110,14 +158,15 @@ const CommentInput = styled.div`
     align-self: flex-end;
     padding: 8px 16px;
     font-size: 14px;
-    background-color: #2ecc71;
+    background-color: #3498db;
     color: white;
     border: none;
     border-radius: 8px;
+    font-weight: 700;
     cursor: pointer;
 
     &:hover {
-      background-color: #27ae60;
+      background-color: #2980b9;
     }
   }
 `;
