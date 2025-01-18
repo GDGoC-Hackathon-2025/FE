@@ -86,7 +86,7 @@ const LoginPage = () => {
           <DividerText>소셜 로그인하기</DividerText>
           <Line />
         </CommentDivider>
-        <LoginButton>
+        <LoginButton href="http://43.201.161.96:8080/oauth2/authorization/naver">
           <img src={NaverLogo} style={{ width: '25px', marginRight: '150px' }} />
           네이버로 시작하기
         </LoginButton>

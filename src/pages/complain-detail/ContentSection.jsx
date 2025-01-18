@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import LikesIcon from "../../assets/icons/LikesIcon.svg";
 import { useNavigate } from "react-router-dom";
 
