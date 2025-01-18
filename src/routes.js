@@ -9,6 +9,7 @@ import ComplainDetail from "./pages/complain-detail/ComplainDetail";
 
 import FundingCreatePage from "./pages/funding-create/FundingCreatePage";
 import FundingList from "./pages/funding/FundingList";
+import FundingDetail from "./pages/funding-detail/FundingDetail";
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
         <Route path="/complain/create" element={<ComplainCreatePage />} />
         <Route path="/auth" element={<LoginPage />} />
         <Route path="/funding" element={<FundingList />} />
+        <Route path="/funding/:id" element={<FundingDetail />} />
         <Route path="/funding/create" element={<FundingCreatePage />} />
         <Route path="/payment" element={""} />
       </Routes>
