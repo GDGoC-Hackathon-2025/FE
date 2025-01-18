@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 const ComplainCard = ({
   complain = {
     id: 1,
-    title: "지역 환경 개선 프로젝트",
+    title: "아산시 개발 교육 지원 요청",
     contents:
-      "지역의 공원과 거리를 정비하여 깨끗하고 살기 좋은 환경을 만드는 프로젝트입니다.",
-    endDate: "2025-02-01",
-    commentCount: 15,
-    likesCount: 120,
-    dDay: 10,
+      "아산시에 국비 지원 개발 교육 프로그램이 없어서 취업 준비에 어려움을 겪고 있습니다. 지역 청년들을 위해 해당 프로그램 개설을 요청합니다.",
+    endDate: "2025-01-20",
+    commentCount: 12,
+    likesCount: 110,
+    dDay: 1,
   },
 }) => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const ComplainCard = ({
             <LikesCount>10</LikesCount>
           </Likes>
           <DDay>
-            <DDayText>D-10</DDayText>
+            <DDayText>D-{complain.dDay}</DDayText>
           </DDay>
         </ButtonContainer>
       </ActionFooter>
