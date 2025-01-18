@@ -3,28 +3,27 @@ import ComplainCard from "../../components/ComplainCard";
 
 import styled from "styled-components";
 
-const PopularComplain = () => {
-  const complainCards = Array.from({ length: 3 }, (_, index) => (
+const CommonComplain = () => {
+  const complainCards = Array.from({ length: 20 }, (_, index) => (
     <ComplainCard key={index} />
   ));
 
   return (
     <Wrapper>
-      <Title>현재 인기있는 요청이에요 🔥</Title>
-      <PopularComplainWrapper>{complainCards}</PopularComplainWrapper>
+      <Title>최근에 들어온 요청이에요 🙌</Title>
+      <CommonComplainWrapper>{complainCards}</CommonComplainWrapper>
     </Wrapper>
   );
 };
 
-export default PopularComplain;
-
+export default CommonComplain;
 const Wrapper = styled.div`
   width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const PopularComplainWrapper = styled.div`
+const CommonComplainWrapper = styled.div`
   width: 950px;
   display: flex;
   gap: 15px;
