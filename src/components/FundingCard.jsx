@@ -14,7 +14,7 @@ const FundingCard = ({ item }) => {
         {item.uploadFileNames[0] === "No image found" ? (
           "No Image"
         ) : (
-          <img src={item.uploadFileNames[0]} alt={item.pname} />
+          <img src={item.uploadFileNames[0]} alt={item.pname} style={{objectFit: 'cover'}} />
         )}
       </ImagePlaceholder>
       <CardContent>
@@ -48,10 +48,15 @@ export const ImagePlaceholder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 `;
 
 export const CardContent = styled.div`
+  position: relative; /* z-index가 작동하려면 position 속성이 필요 */
+  z-index: 2; /* 이미지보다 높은 레이어 */
   padding: 15px;
+  background: #fff;
+  border-top: 1px solid #ddd; /* 이미지와의 구분선 추가 */
 `;
 
 export const CardTitle = styled.h3`
