@@ -15,6 +15,7 @@ const Payment = () => {
     setTimeout(() => {
       setIsLoading(false);
       navigate(-1);
+      alert("결제가 완료되었습니다");
     }, 2000); // 3000ms = 3초
   };
   return (
