@@ -8,7 +8,7 @@ const ContentSection = () => {
   return (
     <div>
       <HeaderSection>
-        <Thumbnail />
+        <Thumbnail src="https://udemy.wjtb.co.kr/image/content/newsletter/qv/vx/affxegcw/html/125075711qvts.png"/>
         <TitleSection>
           <TitleContent>
             <Location>아산시</Location>
@@ -67,7 +67,7 @@ const TitleSection = styled.div`
   justify-content: space-between;
 `;
 
-const Thumbnail = styled.div`
+const Thumbnail = styled.img`
   width: 300px;
   height: 300px;
   background-color: #d3d3d3;
